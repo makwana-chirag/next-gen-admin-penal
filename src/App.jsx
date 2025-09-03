@@ -9,13 +9,13 @@ import Login from "./components/Login";
 import Inquiries from "./components/Inquiries";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
+
 function App() {
   const token = localStorage.getItem("token");
 
   return (
     <Router>
       <Routes>
-        {/* Default route → redirect */}
         <Route
           path="/"
           element={
@@ -27,7 +27,10 @@ function App() {
           }
         />
 
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={token ? <Navigate to="/inquiries" replace /> : <Login />}
+        />
 
         <Route
           path="/inquiries"

@@ -24,9 +24,12 @@ const Login = () => {
     }),
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        const res = await axios.post("http://localhost:5000/login", values);
+        const res = await axios.post(
+          "http://localhost:4000/admin/login",
+          values
+        );
 
-        if (res.data.success) {
+        if (res.data.token) {
           localStorage.setItem("token", res.data.token);
           navigate("/inquiries");
         } else {
@@ -57,7 +60,7 @@ const Login = () => {
             <input
               type="text"
               name="username"
-              className={`w-full px-4 py-2 border bg-gray-100 rounded-lg focus:ring-2 focus:outline-none transition h-11 ${
+              className={`w-full px-4 py-2 border text-black bg-gray-100 rounded-lg focus:ring-2 focus:outline-none transition h-11 ${
                 formik.touched.username && formik.errors.username
                   ? "border-red-500 focus:ring-red-400"
                   : "border-gray-300 focus:ring-indigo-400"
@@ -81,7 +84,7 @@ const Login = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
-                className={`w-full px-4 py-2 border bg-gray-100 rounded-lg focus:ring-2 focus:outline-none transition h-11 pr-10 ${
+                className={`w-full px-4 py-2 border text-black bg-gray-100 rounded-lg focus:ring-2 focus:outline-none transition h-11 pr-10 ${
                   formik.touched.password && formik.errors.password
                     ? "border-red-500 focus:ring-red-400"
                     : "border-gray-300 focus:ring-indigo-400"
