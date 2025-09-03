@@ -8,7 +8,7 @@ import {
 import Login from "./components/Login";
 import Inquiries from "./components/Inquiries";
 import ProtectedRoute from "./components/ProtectedRoute";
-import "./App.css"; // Remove the index.css import from here
+import "./App.css";
 function App() {
   const token = localStorage.getItem("token");
 
