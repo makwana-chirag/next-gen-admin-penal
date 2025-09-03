@@ -28,11 +28,11 @@ const Inquiries = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/login", { replace: true });
   };
 
   return (
-    <div className="w-[1400px] min-h-screen">
+    <div className="w-[1400px] min-h-[90vh]">
       <header className="flex justify-between items-center rounded-md px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-md">
         <h1 className="text-2xl font-bold tracking-wide">
           NextGen Admin Panel
@@ -47,7 +47,7 @@ const Inquiries = () => {
       </header>
 
       <div className="w-full px-8 mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+        <h2 className="text-3xl font-bold text-indigo-800 mb-8 text-center">
           Inquiries
         </h2>
 
