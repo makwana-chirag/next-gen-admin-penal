@@ -24,7 +24,7 @@ const Login = () => {
     }),
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        const API_URL = process.env.VITE_API_URL;
+        const API_URL = import.meta.env.VITE_APP_API_URL;
         const res = await axios.post(`${API_URL}/admin/login`, values);
 
         if (res.data.token) {
