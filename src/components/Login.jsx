@@ -24,10 +24,8 @@ const Login = () => {
     }),
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        const res = await axios.post(
-          "http://localhost:4000/admin/login",
-          values
-        );
+        const API_URL = process.env.REACT_APP_API_URL;
+        const res = await axios.post(`${API_URL}/admin/login`, values);
 
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);

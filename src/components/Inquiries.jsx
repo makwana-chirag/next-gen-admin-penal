@@ -9,10 +9,12 @@ const Inquiries = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const API_URL = process.env.REACT_APP_API_URL;
+
     const fetchInquiries = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:4000/inquiries", {
+        const res = await axios.get(`${API_URL}/inquiries`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -78,12 +80,12 @@ const Inquiries = () => {
                     key={inq.id}
                     className={`${
                       idx % 2 === 0 ? "bg-gray-50" : "bg-white"
-                    } hover:bg-blue-50 transition`}
+                    } hover:bg-blue-50 transition text-start`}
                   >
-                    <td className="px-6 py-4">{inq.id}</td>
-                    <td className="px-6 py-4">{inq.name}</td>
-                    <td className="px-6 py-4">{inq.email}</td>
-                    <td className="px-6 py-4">{inq.message}</td>
+                    <td className="px-6 py-4  text-gray-600">{inq.id}</td>
+                    <td className="px-6 py-4 text-gray-600">{inq.name}</td>
+                    <td className="px-6 py-4 text-gray-600">{inq.email}</td>
+                    <td className="px-6 py-4 text-gray-600">{inq.message}</td>
                     <td className="px-6 py-4 text-gray-600">
                       {inq.created_at}
                     </td>
